@@ -1,0 +1,22 @@
+################
+##Matthew Lyon##
+################
+
+'''
+Homework Assignment 1 – DUE 9/17
+
+Create a function in Maya Python that creates a nxn plane,
+then scatters spheres at random places along the grid with random radii.
+
+You would use the function like this:
+
+createSphereGrid(size=10, maxRadius=5, numSpheres=15) 
+'''
+
+import maya.cmds as cmds
+import random
+
+#def createSphereGrid(planeScale, sphereMaxRadi, sphereNum):
+
+def createSphereGrid(planeSize):
+	cmds.plane(size=planeSize, rotation = 90,0,0)					#Creates a plane of a size specified by the argument 'planeSize'
