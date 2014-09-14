@@ -1,4 +1,4 @@
-Adv-Scripting-Homework01 Random Sphere's Function
+'Adv-Scripting-Homework01 Random Spheres Function'
 ========================
 
 ################
@@ -19,7 +19,13 @@ createSphereGrid(size=10, maxRadius=5, numSpheres=15)
 import maya.cmds as cmds
 import random
 
-#def createSphereGrid(planeScale, sphereMaxRadi, sphereNum):
+def createSphereGrid(planeSize=10, sphereMaxRadi=3, sphereNum=5):
+    cmds.polyPlane(width=planeSize, height=planeSize)				# Creates an x by z plane using the 'planeSize' argument.
+    for sphere in range(sphereNum):						# Starts a loop based on the'sphereNum' argument.
+        randomX=random.randint(-planeSize/2, planeSize/2)			# Creating random intergets for placement of the spheres.
+        randomZ=random.randint(-planeSize/2, planeSize/2)
+        randomScale=random.randint(0.0,sphereMaxRadi+1)				# Creating random interger for the radiis of the sphere using the 'sphereMaxRadi' argument as the maximum posible.
+        cmds.polySphere(radius=randomScale)					# Creating the sphere with the randomScale variable as it's radius.
+        cmds.move(randomX,0,randomZ)						# Moving the created sphere based on the 'randomX' and 'randomZ' variables.
 
-def createSphereGrid(planeSize):
-	cmds.plane(size=planeSize, rotation = 90,0,0)					#Creates a plane of a size specified by the argument 'planeSize'
+createSphereGrid(100,5,20)
